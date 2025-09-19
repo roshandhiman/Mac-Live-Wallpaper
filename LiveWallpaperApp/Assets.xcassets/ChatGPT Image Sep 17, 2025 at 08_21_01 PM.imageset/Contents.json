@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "ChatGPT Image Sep 17, 2025 at 08_21_01 PM.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "ChatGPT Image Sep 17, 2025 at 08_30_22 PM.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "ChatGPT Image Sep 17, 2025 at 08_30_22 PM 1.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
