@@ -46,23 +46,25 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
             // Player layer (lighter than AVPlayerView)
             let layer = AVPlayerLayer(player: queuePlayer)
-            layer.frame = frame
+            layer.frame = NSRect(origin: .zero, size: frame.size)
+            layer.autoresizingMask = [.layerWidthSizable, .layerHeightSizable]
             layer.videoGravity = .resizeAspectFill
 
             let w = NSWindow(contentRect: frame,
                              styleMask: .borderless,
                              backing: .buffered,
                              defer: false)
-            w.contentView = NSView(frame: frame)
-            w.contentView?.wantsLayer = true
-            w.contentView?.layer?.addSublayer(layer)
-            
+            let contentView = NSView(frame: NSRect(origin: .zero, size: frame.size))
+            contentView.wantsLayer = true
+            contentView.layer?.addSublayer(layer)
+            w.contentView = contentView
+
             w.isOpaque = false
             w.backgroundColor = .clear
             w.hasShadow = false
-            w.level = NSWindow.Level(rawValue: Int(CGWindowLevelForKey(.desktopWindow)))
+            w.level = NSWindow.Level(rawValue: Int(CGWindowLevelForKey(.desktopWindow)) + 1)
             w.ignoresMouseEvents = true
-            w.collectionBehavior = [.canJoinAllSpaces, .stationary, .ignoresCycle]
+            w.collectionBehavior = [.canJoinAllSpaces, .stationary, .ignoresCycle, .fullScreenAuxiliary]
 
             w.makeKeyAndOrderFront(nil)
             w.orderFrontRegardless()
