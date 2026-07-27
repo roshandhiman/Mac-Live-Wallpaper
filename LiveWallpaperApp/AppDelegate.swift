@@ -62,7 +62,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             w.isOpaque = false
             w.backgroundColor = .clear
             w.hasShadow = false
-            w.level = NSWindow.Level(rawValue: Int(CGWindowLevelForKey(.desktopWindow)) + 1)
+            w.level = NSWindow.Level(rawValue: Int(CGWindowLevelForKey(.desktopIconWindow)) - 1)
             w.ignoresMouseEvents = true
             w.collectionBehavior = [.canJoinAllSpaces, .stationary, .ignoresCycle, .fullScreenAuxiliary]
 
